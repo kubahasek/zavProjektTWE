@@ -22,7 +22,7 @@
                     <i class="fa-solid fa-xl fa-arrow-right-from-bracket sign-out"></i>
                 </div>
                 <div class="sidebar-links">
-                    <a href="index.php">
+                    <a href="/zavprojekttwe">
                         <div class="sidebar-link">
                             <div class="active-link"></div>
                             <div class="sidebar-link-content">
@@ -31,7 +31,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="employees.php">
+                    <a href="/zavprojekttwe/employees">
                         <div class="sidebar-link">
                             <div></div>
                             <div class="sidebar-link-content">
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="sales.php">
+                    <a href="/zavprojekttwe/sales">
                         <div class="sidebar-link">
                             <div></div>
                             <div class="sidebar-link-content">
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="products.php">
+                    <a href="/zavprojekttwe/products">
                         <div class="sidebar-link">
                             <div></div>
                             <div class="sidebar-link-content">
@@ -59,8 +59,6 @@
                         </div>
                     </a>
                 </div>
-            </div>
-        </div>
         <div class="content-container">
 
         </div>
