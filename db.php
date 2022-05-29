@@ -1,7 +1,7 @@
 <?php 
 
 $host = "mysqlstudenti.litv.sssvt.cz";
-$db = "3a1_junekvojtech1a_db1";
+$db = "3a1_hasekjakub_db1";
 $user = "hasekjakub";
 $pass = "123456";
 
