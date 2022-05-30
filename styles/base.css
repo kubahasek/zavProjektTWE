@@ -24,14 +24,14 @@ a {
   height: 100vh;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 0.75fr 2.5fr;
 }
 
 .sidebar {
   background-color: #242424;
   border-radius: 46px;
   margin: auto;
-  width: 70%;
+  width: 90%;
   height: 95vh;
   display: flex;
   flex-direction: column;
