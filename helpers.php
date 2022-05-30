@@ -34,3 +34,14 @@ function getProducts(){
     return $data;
 
 }
+
+function getEmployeeById(id){
+        
+    $sql = "SELECT * FROM employees WHERE id = :id";
+    $stmt = $pdo -> prepare($sql);
+    $stmt -> execute(["id" => $id]);
+    $data = $stmt -> fetch();
+    
+    return $data;
+        
+}
