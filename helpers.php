@@ -35,7 +35,7 @@ function getProducts(){
 
 }
 
-function getEmployeeById(id){
+function getEmployeeById($id){
         
     $sql = "SELECT * FROM employees WHERE id = :id";
     $stmt = $pdo -> prepare($sql);
