@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/employees.css">
     <script src="https://kit.fontawesome.com/e58aedf901.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +63,26 @@
             </div>
         </div>
         <div class="content-container">
-            
+            <div class="top-container">
+                <div class="top-container-content">
+                    <div class="search">
+                        <input type="text">
+                        <div class="search-icon"><i class="fa-solid fa-lg fa-search"></i></div>
+                    </div>
+                    
+                    <div class="button">
+                        <a href="/zavprojekttwe/employees/add.php">
+                            <div class="button-content">
+                                <i class="fa-solid fa-lg fa-plus"></i>
+                                <span>Add Employee</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-container">
+                
+            </div>
         </div>
     </div>
     
