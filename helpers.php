@@ -1,9 +1,7 @@
 <?php
 
-require "db.php";
-
 function getEmployees(){
-        
+    require "db.php";
     $sql = "SELECT * FROM employees";
     $stmt = $pdo -> prepare($sql);
     $stmt -> execute();
@@ -14,7 +12,7 @@ function getEmployees(){
 }
 
 function getSales(){
-            
+    require "db.php";
     $sql = "SELECT * FROM sales";
     $stmt = $pdo -> prepare($sql);
     $stmt -> execute();
@@ -25,7 +23,7 @@ function getSales(){
 }
 
 function getProducts(){
-                    
+    require "db.php";                    
     $sql = "SELECT * FROM products";
     $stmt = $pdo -> prepare($sql);
     $stmt -> execute();
@@ -36,7 +34,7 @@ function getProducts(){
 }
 
 function getEmployeeById($id){
-        
+    require "db.php";        
     $sql = "SELECT * FROM employees WHERE id = :id";
     $stmt = $pdo -> prepare($sql);
     $stmt -> execute(["id" => $id]);
