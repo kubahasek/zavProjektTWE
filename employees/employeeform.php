@@ -15,7 +15,7 @@
 <body>
     <?php require "../helpers.php"; ?>
     <?php require "../db.php"; ?>
-    <?php 
+    <?php
     if (isset($_GET["id"])) {
             $stmt = $pdo->prepare("SELECT * FROM employees WHERE id = :id");
             $stmt->execute(["id" => $_GET["id"]]);
@@ -92,21 +92,20 @@
             </div>
         </div>
     </div>
-    <?php 
+    <?php
     if (isset($_POST) && !empty($_POST)) {
-                    $stmt = $pdo->prepare("INSERT INTO employees (name, surname, email, dob, job) VALUES (:name, :surname, :email, :dob, :job)");
+        $stmt = $pdo->prepare("INSERT INTO employees (name, surname, email, dob, job) VALUES (:name, :surname, :email, :dob, :job)");
 
-                    $stmt->execute([
-                        "name" => $_POST["name"],
-                        "surname" => $_POST["surname"],
-                        "email" => $_POST["email"],
-                        "dob" => $_POST["dob"],
-                        "job" => $_POST["job"]
-                        
-                    ]);
-                    $location = "Location: /zavprojekttwe/employees";; 
-                    header($location);
-                }
+        $stmt->execute([
+            "name" => $_POST["name"],
+            "surname" => $_POST["surname"],
+            "email" => $_POST["email"],
+            "dob" => $_POST["dob"],
+            "job" => $_POST["job"]
+            
+        ]);
+        header("Location: /zavprojekttwe/employees");
+    };
     ?>
 </body>
 </html>
