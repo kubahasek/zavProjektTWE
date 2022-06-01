@@ -5,6 +5,7 @@
   height: 95vh;
   row-gap: 2rem;
   margin: auto;
+  overflow: hidden;
 }
 
 .top-container {
@@ -79,6 +80,7 @@ input[type="text"] {
   width: 100%;
   text-align: center;
   border-collapse: collapse;
+  margin-bottom: 2rem;
 }
 
 th {
@@ -110,4 +112,10 @@ td {
 
 .delete-icon:hover {
   color: red;
+}
+
+.bottom-container {
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
