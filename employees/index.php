@@ -98,7 +98,7 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">let employees = <?php echo json_encode(getEmployees()) ?></script>
-    <script src="./script.js"></script>
+    <script type="text/javascript">let employeesData = <?php echo json_encode(getEmployees()) ?></script>
+    <script src="./employees.js"></script>
 </body>
 </html>
