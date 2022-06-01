@@ -3,6 +3,7 @@
   grid-template-rows: 0.25fr 2fr;
   width: 95%;
   height: 95vh;
+  row-gap: 2rem;
   margin: auto;
 }
 
@@ -105,4 +106,54 @@ input[type="text"] {
 .button:hover > a > .button-content {
   color: #87009d;
   transition: all 100ms ease-in;
+}
+
+.bottom-container {
+  background-color: #242424;
+  border-radius: 46px;
+  width: 100%;
+  display: flex;
+}
+
+.employee-list {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.employee-table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+th {
+  font-size: 2rem;
+}
+
+tr {
+  font-size: 1.5rem;
+}
+
+.employee-card td {
+  border-bottom: 2px solid white;
+}
+
+td {
+  padding: 1.5rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  gap: 2rem;
+}
+
+.edit-icon:hover {
+  color: yellow;
+}
+
+.delete-icon:hover {
+  color: red;
 }

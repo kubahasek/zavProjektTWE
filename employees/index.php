@@ -66,7 +66,7 @@
             <div class="top-container">
                 <div class="top-container-content">
                     <div class="search">
-                        <input type="text">
+                        <input type="text" class="search-box">
                         <div class="search-icon"><i class="fa-solid fa-lg fa-search"></i></div>
                     </div>
                     
@@ -81,10 +81,24 @@
                 </div>
             </div>
             <div class="bottom-container">
-                
+                <div class="employee-list">
+                    <table class="employee-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Job</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-data">
+                        </tbody>    
+                    </table>                
+                </div>
             </div>
         </div>
     </div>
-    
+    <script type="text/javascript">let employees = <?php echo json_encode(getEmployees()) ?></script>
+    <script src="./script.js"></script>
 </body>
 </html>
