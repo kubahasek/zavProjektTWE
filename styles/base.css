@@ -118,6 +118,7 @@ a {
   width: 20%;
   height: 20%;
   font-size: 1.2rem;
+  font-weight: bold;
   transition: all 100ms ease-in;
 }
 
