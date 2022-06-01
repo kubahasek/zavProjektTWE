@@ -14,6 +14,7 @@
 </head>
 <body>
     <?php require "../helpers.php"; ?>
+    <?php require "../db.php"; ?>
     <div class="grid-container">
         <div class="sidebar">
             <div class="content">
@@ -63,8 +64,42 @@
             </div>
         </div>
         <div class="content-container">
-            
+            <div class="form-container">
+                <?= isset($_GET["id"]) ? "<h1>Edit employee</h1>" :"<h1>Add a new employee</h1>" ?>
+                <form action="" method="POST">
+                    <div class="form-fields">
+                        <div class="fields-container">
+                            <label><span>Name</span> <input type="text" name="name" required></label>
+                            <label><span>Surname</span> <input type="text" name="surname" required></label>
+                        </div>
+                        <div class="fields-container">
+                            <label><span>Email</span><input type="email" name="email" id="" required></label>
+                        </div>
+                        <div class="fields-container">
+                            <label><span>Date of Birth</span> <input type="date" name="dob" required></label>
+                            <label><span>Job</span> <input type="text" name="job" required></label>
+                        </div>
+                        <input class="button" value="Add" type="submit">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+    <?php 
+    if (isset($_POST) && !empty($_POST)) {
+                    $stmt = $pdo->prepare("INSERT INTO employees (name, surname, email, dob, job) VALUES (:name, :surname, :email, :dob, :job)");
+
+                    $stmt->execute([
+                        "name" => $_POST["name"],
+                        "surname" => $_POST["surname"],
+                        "email" => $_POST["email"],
+                        "dob" => $_POST["dob"],
+                        "job" => $_POST["job"]
+                        
+                    ]);
+                    $location = "Location: /zavprojekttwe/employees";; 
+                    header($location);
+                }
+    ?>
 </body>
 </html>
