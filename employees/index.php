@@ -66,12 +66,10 @@
             <div class="top-container">
                 <div class="top-container-content">
                     <div class="search">
-                        <input type="text" class="search-box">
-                        <div class="search-icon"><i class="fa-solid fa-lg fa-search"></i></div>
+                        <input type="text" class="search-box" placeholder="Search...">
                     </div>
-                    
                     <div class="button">
-                        <a href="/zavprojekttwe/employees/add.php">
+                        <a href="/zavprojekttwe/employees/employeeform.php">
                             <div class="button-content">
                                 <i class="fa-solid fa-lg fa-plus"></i>
                                 <span>Add Employee</span>
