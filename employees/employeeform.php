@@ -15,6 +15,13 @@
 <body>
     <?php require "../helpers.php"; ?>
     <?php require "../db.php"; ?>
+    <?php 
+    if (isset($_GET["id"])) {
+            $stmt = $pdo->prepare("SELECT * FROM employees WHERE id = :id");
+            $stmt->execute(["id" => $_GET["id"]]);
+            $row = $stmt->fetch();
+        } 
+    ?>
     <div class="grid-container">
         <div class="sidebar">
             <div class="content">
@@ -69,15 +76,15 @@
                 <form action="" method="POST">
                     <div class="form-fields">
                         <div class="fields-container">
-                            <label><span>Name</span> <input type="text" name="name" required></label>
-                            <label><span>Surname</span> <input type="text" name="surname" required></label>
+                            <label><span>Name</span> <input type="text" name="name" value="<?php echo isset($_GET["id"]) ? $row["name"] : "" ?>" required></label>
+                            <label><span>Surname</span> <input type="text" name="surname" value="<?php echo isset($_GET["id"]) ? $row["surname"] : "" ?>" required></label>
                         </div>
                         <div class="fields-container">
-                            <label><span>Email</span><input type="email" name="email" id="" required></label>
+                            <label><span>Email</span><input type="email" name="email" id="" value="<?php echo isset($_GET["id"]) ? $row["email"] : "" ?>" required></label>
                         </div>
                         <div class="fields-container">
-                            <label><span>Date of Birth</span> <input type="date" name="dob" required></label>
-                            <label><span>Job</span> <input type="text" name="job" required></label>
+                            <label><span>Date of Birth</span> <input type="date" name="dob" value="<?php echo isset($_GET["id"]) ? $row["dob"] : "" ?>" required></label>
+                            <label><span>Job</span> <input type="text" name="job" value="<?php echo isset($_GET["id"]) ? $row["job"] : "" ?>" required></label>
                         </div>
                         <input class="button" value="Add" type="submit">
                     </div>
