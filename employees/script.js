@@ -5,7 +5,7 @@ renderTable(employees);
 
 function updateValue(e) {
   let searchValue = e.target.value;
-  if (searchValue) {
+  if (searchValue !== "") {
     let filteredEmployees = employees.filter((employee) => {
       if (
         employee.name.toLowerCase().includes(searchValue.toLowerCase()) ||
@@ -17,6 +17,8 @@ function updateValue(e) {
       }
     });
     renderTable(filteredEmployees);
+  } else {
+    renderTable(employees);
   }
 }
 
