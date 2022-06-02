@@ -16,11 +16,14 @@
     <?php require "../helpers.php"; ?>
     <?php require "../db.php"; ?>
     <?php
+    if (isset($_POST) && !empty($_POST)) {
+        header("Location: /zavprojekttwe/employees");
+    }
     if (isset($_GET["id"])) {
             $stmt = $pdo->prepare("SELECT * FROM employees WHERE id = :id");
             $stmt->execute(["id" => $_GET["id"]]);
             $row = $stmt->fetch();
-        } 
+        }
     ?>
     <div class="grid-container">
         <div class="sidebar">
@@ -76,7 +79,7 @@
                 <form action="" method="POST">
                     <div class="form-fields">
                         <div class="fields-container">
-                            <label><span>Name</span> <input type="text" name="name" value="<?php echo isset($_GET["id"]) ? $row["name"] : "" ?>" required></label>
+                            <label><span>Name</span> <input type="text" name="name" value="<?php echo isset($_GET["id"]) ? $row["name"] : "" ?>" autofocus required></label>
                             <label><span>Surname</span> <input type="text" name="surname" value="<?php echo isset($_GET["id"]) ? $row["surname"] : "" ?>" required></label>
                         </div>
                         <div class="fields-container">
@@ -86,14 +89,14 @@
                             <label><span>Date of Birth</span> <input type="date" name="dob" value="<?php echo isset($_GET["id"]) ? $row["dob"] : "" ?>" required></label>
                             <label><span>Job</span> <input type="text" name="job" value="<?php echo isset($_GET["id"]) ? $row["job"] : "" ?>" required></label>
                         </div>
-                        <input class="button" value="Add" type="submit">
+                        <input class="button" value="<?= isset($_GET["id"]) ? "Edit" : "Add" ?>" type="submit">
                     </div>
                 </form>
             </div>
         </div>
     </div>
     <?php
-    if (isset($_POST) && !empty($_POST)) {
+    if (isset($_POST) && !empty($_POST) && !isset($_GET["id"])) {
         $stmt = $pdo->prepare("INSERT INTO employees (name, surname, email, dob, job) VALUES (:name, :surname, :email, :dob, :job)");
 
         $stmt->execute([
@@ -106,6 +109,19 @@
         ]);
         header("Location: /zavprojekttwe/employees");
     };
+    if (isset($_POST) && !empty($_POST) && isset($_GET["id"])) {
+        $stmt = $pdo->prepare("UPDATE employees SET name = :name, surname = :surname, email = :email, dob = :dob, job = :job WHERE id = :id");
+
+        $stmt->execute([
+            "name" => $_POST["name"],
+            "surname" => $_POST["surname"],
+            "email" => $_POST["email"],
+            "dob" => $_POST["dob"],
+            "job" => $_POST["job"],
+            "id" => $_GET["id"]
+            
+        ]);
+    }
     ?>
 </body>
 </html>
