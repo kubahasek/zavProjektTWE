@@ -1,5 +1,7 @@
-/* let tableData: HTMLElement | null = document.querySelector(".table-data");
-let searchbox: HTMLInputElement | null = document.querySelector(".search-box"); */
+let productsTableData: HTMLElement | null = document.querySelector(
+  ".products-table-data"
+);
+let searchbox: HTMLInputElement | null = document.querySelector(".search-box");
 if (searchbox) {
   searchbox.addEventListener("input", updateValue);
 }
@@ -14,32 +16,30 @@ type Product = {
 };
 
 let Products: Array<Product> = productsData;
+console.log(Products);
 
-renderTable(employees);
+renderTable(Products);
 
 function updateValue() {
   let searchValue: string | undefined = searchbox?.value.toLowerCase();
   if (searchValue !== "" && searchValue !== undefined) {
-    let filteredEmployees = employees.filter((employee) => {
-      if (
-        employee.name.toLowerCase().includes(searchValue) ||
-        employee.surname.toLowerCase().includes(searchValue)
-      ) {
+    let filteredProducts = Products.filter((product) => {
+      if (product.name.toLowerCase().includes(searchValue)) {
         return true;
       } else {
         return false;
       }
     });
-    renderTable(filteredEmployees);
+    renderTable(filteredProducts);
   } else {
-    renderTable(employees);
+    renderTable(Products);
   }
 }
 
 function renderTable(ProductsArray: Array<Product>) {
-  tableData.innerHTML = "";
+  productsTableData.innerHTML = "";
   ProductsArray.map((Product) => {
-    tableData.innerHTML += `<tr class="employee-card">
+    productsTableData.innerHTML += `<tr class="employee-card">
                                     <td>${Product.name}</td>
                                     <td>${Product.category}</td>
                                     <td>

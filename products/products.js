@@ -1,33 +1,33 @@
 "use strict";
-/* let tableData: HTMLElement | null = document.querySelector(".table-data");
-let searchbox: HTMLInputElement | null = document.querySelector(".search-box"); */
+let productsTableData = document.querySelector(".products-table-data");
+let searchbox = document.querySelector(".search-box");
 if (searchbox) {
     searchbox.addEventListener("input", updateValue);
 }
 let Products = productsData;
-renderTable(employees);
+console.log(Products);
+renderTable(Products);
 function updateValue() {
     let searchValue = searchbox === null || searchbox === void 0 ? void 0 : searchbox.value.toLowerCase();
     if (searchValue !== "" && searchValue !== undefined) {
-        let filteredEmployees = employees.filter((employee) => {
-            if (employee.name.toLowerCase().includes(searchValue) ||
-                employee.surname.toLowerCase().includes(searchValue)) {
+        let filteredProducts = Products.filter((product) => {
+            if (product.name.toLowerCase().includes(searchValue)) {
                 return true;
             }
             else {
                 return false;
             }
         });
-        renderTable(filteredEmployees);
+        renderTable(filteredProducts);
     }
     else {
-        renderTable(employees);
+        renderTable(Products);
     }
 }
 function renderTable(ProductsArray) {
-    tableData.innerHTML = "";
+    productsTableData.innerHTML = "";
     ProductsArray.map((Product) => {
-        tableData.innerHTML += `<tr class="employee-card">
+        productsTableData.innerHTML += `<tr class="employee-card">
                                     <td>${Product.name}</td>
                                     <td>${Product.category}</td>
                                     <td>

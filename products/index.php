@@ -88,7 +88,7 @@
                                     <th>Actions</th>
                                 </tr>
                             </thead>
-                            <tbody class="table-data">
+                            <tbody class="products-table-data">
                             </tbody>    
                         </table>                
                     </div>
