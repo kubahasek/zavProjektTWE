@@ -48,7 +48,7 @@ function renderTable(employeesArray: Array<Employee>) {
                                             <a href="/zavprojekttwe/employees/employeeform.php?id=${employee.id}">
                                                 <div class="edit-icon"><i class="fa-solid fa-lg fa-edit"></i></div>
                                             </a>
-                                            <a href="/zavprojekttwe/employees/employeeform.php?id=${employee.id}">
+                                            <a href="/zavprojekttwe/employees/deleteEmployee.php?id=${employee.id}">
                                                 <div class="delete-icon"><i class="fa-solid fa-lg fa-trash-alt"></i></div>
                                             </a>
                                         </div>
