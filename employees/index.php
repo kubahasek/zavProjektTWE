@@ -69,7 +69,7 @@
                         <input type="text" class="search-box" placeholder="Search...">
                     </div>
                     <div class="button">
-                        <a href="/zavprojekttwe/employees/employeeform.php">
+                        <a href="/zavprojekttwe/employees/form.php">
                             <div class="button-content">
                                 <i class="fa-solid fa-lg fa-plus"></i>
                                 <span>Add Employee</span>
