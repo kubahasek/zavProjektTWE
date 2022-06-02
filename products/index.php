@@ -62,9 +62,41 @@
             </div>
         </div>
         <div class="content-container">
-
+            <div class="top-container">
+                    <div class="top-container-content">
+                        <div class="search">
+                            <input type="text" class="search-box" placeholder="Search...">
+                        </div>
+                        <div class="button">
+                            <a href="/zavprojekttwe/employees/productform.php">
+                                <div class="button-content">
+                                    <i class="fa-solid fa-lg fa-plus"></i>
+                                    <span>Add Product</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-container">
+                    <div class="products-list">
+                        <table class="products-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Job</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-data">
+                            </tbody>    
+                        </table>                
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    
+    <script type="text/javascript">let productsData = <?php echo json_encode(getEmployees()) ?></script>
+    <script src="./employees.js"></script>
 </body>
 </html>
