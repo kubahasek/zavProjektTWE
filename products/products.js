@@ -1,10 +1,10 @@
 "use strict";
-let tableData = document.querySelector(".employee-table-data");
-let searchbox = document.querySelector(".search-box");
+/* let tableData: HTMLElement | null = document.querySelector(".table-data");
+let searchbox: HTMLInputElement | null = document.querySelector(".search-box"); */
 if (searchbox) {
     searchbox.addEventListener("input", updateValue);
 }
-let employees = employeesData;
+let Products = productsData;
 renderTable(employees);
 function updateValue() {
     let searchValue = searchbox === null || searchbox === void 0 ? void 0 : searchbox.value.toLowerCase();
@@ -24,19 +24,18 @@ function updateValue() {
         renderTable(employees);
     }
 }
-function renderTable(employeesArray) {
+function renderTable(ProductsArray) {
     tableData.innerHTML = "";
-    employeesArray.map((employee) => {
+    ProductsArray.map((Product) => {
         tableData.innerHTML += `<tr class="employee-card">
-                                    <td>${employee.id}</td>
-                                    <td>${employee.name} ${employee.surname}</td>
-                                    <td>${employee.job}</td>
+                                    <td>${Product.name}</td>
+                                    <td>${Product.category}</td>
                                     <td>
                                         <div class="actions">
-                                            <a href="/zavprojekttwe/employees/employeeform.php?id=${employee.id}">
+                                            <a href="/zavprojekttwe/employees/employeeform.php?id=${Product.id}">
                                                 <div class="edit-icon"><i class="fa-solid fa-lg fa-edit"></i></div>
                                             </a>
-                                            <a href="/zavprojekttwe/employees/delete.php?id=${employee.id}">
+                                            <a href="/zavprojekttwe/employees/delete.php?id=${Product.id}">
                                                 <div class="delete-icon"><i class="fa-solid fa-lg fa-trash-alt"></i></div>
                                             </a>
                                         </div>

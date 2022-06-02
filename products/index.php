@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/products.css">
     <script src="https://kit.fontawesome.com/e58aedf901.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,9 +83,8 @@
                         <table class="products-table">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
                                     <th>Name</th>
-                                    <th>Job</th>
+                                    <th>Category</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -96,7 +96,7 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">let productsData = <?php echo json_encode(getEmployees()) ?></script>
-    <script src="./employees.js"></script>
+    <script type="text/javascript">let productsData = <?php echo json_encode(getProducts()) ?></script>
+    <script src="./products.js"></script>
 </body>
 </html>

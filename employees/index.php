@@ -89,7 +89,7 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="table-data">
+                        <tbody class="employee-table-data">
                         </tbody>    
                     </table>                
                 </div>
