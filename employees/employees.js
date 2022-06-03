@@ -33,7 +33,6 @@ searchbox.addEventListener("input", updateValue);
           }).showToast();
           window.history.replaceState({}, "", "/zavprojekttwe/employees/");
     }
-    
   }
 
   let employees = employeesData;
