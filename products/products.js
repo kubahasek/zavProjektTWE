@@ -6,6 +6,35 @@ let productsTableData = document.querySelector(
     searchbox.addEventListener("input", updateValue);
   }
   
+  const params = new URLSearchParams(window.location.search)
+  if (params.has("toast")) {
+    if(params.get("toast") === "success") {
+        Toastify({
+            text: "Deleted",
+            duration: 3000,
+            gravity: "top", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "green",
+            },
+          }).showToast();
+          window.history.replaceState({}, "", "/zavprojekttwe/products/");
+    } else {
+        Toastify({
+            text: "Deletion failed",
+            duration: 3000,
+            gravity: "top", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "red",
+            },
+          }).showToast();
+          window.history.replaceState({}, "", "/zavprojekttwe/products/");
+    }
+  }
+
   let Products = productsData;
   console.log(Products);
   
@@ -35,10 +64,10 @@ let productsTableData = document.querySelector(
                                       <td>${Product.category}</td>
                                       <td>
                                           <div class="actions">
-                                              <a href="/zavprojekttwe/employees/employeeform.php?id=${Product.id}">
+                                              <a href="/zavprojekttwe/products/form.php?id=${Product.id}">
                                                   <div class="edit-icon"><i class="fa-solid fa-lg fa-edit"></i></div>
                                               </a>
-                                              <a href="/zavprojekttwe/employees/delete.php?id=${Product.id}">
+                                              <a href="/zavprojekttwe/products/delete.php?id=${Product.id}">
                                                   <div class="delete-icon"><i class="fa-solid fa-lg fa-trash-alt"></i></div>
                                               </a>
                                           </div>
