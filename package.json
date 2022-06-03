@@ -1,0 +1,24 @@
+{
+  "name": "zavprojekttwe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "toastify": "^2.0.1",
+    "typescript": "^4.7.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kubahasek/zavProjektTWE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kubahasek/zavProjektTWE/issues"
+  },
+  "homepage": "https://github.com/kubahasek/zavProjektTWE#readme"
+}
