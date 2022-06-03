@@ -77,6 +77,16 @@ input[type="date"] {
   font-size: 1.2rem;
 }
 
+textarea {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 35px;
+  background-color: #7c7979;
+  color: white;
+  font-size: 1.2rem;
+}
+
 input:focus {
   box-shadow: 0px 0px 15px #87009d;
 }
