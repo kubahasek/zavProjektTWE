@@ -8,10 +8,7 @@ if(isset($_GET["id"])) {
         $stmt->execute(["id" => $_GET["id"]]);
         $row = $stmt->fetch();
         header("Location: /zavprojekttwe/products/?toast=success");
-    } else {
-        header("Location: /zavprojekttwe/products/?toast=fail")
-    }
-    
-
-    
+    } catch (Exception $e) {
+        header("Location: /zavprojekttwe/products/?toast=fail");
+    }   
 }
