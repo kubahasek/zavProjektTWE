@@ -36,7 +36,7 @@ function renderTable(employeesArray) {
                                       <td>${employee.job}</td>
                                       <td>
                                           <div class="actions">
-                                              <a href="/zavprojekttwe/employees/employeeform.php?id=${employee.id}">
+                                              <a href="/zavprojekttwe/employees/form.php?id=${employee.id}">
                                                   <div class="edit-icon"><i class="fa-solid fa-lg fa-edit"></i></div>
                                               </a>
                                               <a href="/zavprojekttwe/employees/delete.php?id=${employee.id}">

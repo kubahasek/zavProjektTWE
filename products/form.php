@@ -16,8 +16,10 @@
     <?php require "../helpers.php"; ?>
     <?php require "../db.php"; ?>
     <?php
-    if (isset($_POST) && !empty($_POST)) {
-        header("Location: /zavprojekttwe/products");
+    if (isset($_POST) && !empty($_POST) && !isset($_GET["id"])) {
+        header("Location: /zavprojekttwe/products/?toast=true&color=green&message=Product added successfully!");
+    } else if (isset($_POST) && !empty($_POST) && isset($_GET["id"])) {
+        header("Location: /zavprojekttwe/products/?toast=true&color=green&message=Product updated successfully!");
     }
     if (isset($_GET["id"])) {
             $stmt = $pdo->prepare("SELECT * FROM products WHERE id = :id");
@@ -114,7 +116,6 @@
             "stock" => $_POST["stock"]
             
         ]);
-        header("Location: /zavprojekttwe/employees");
     };
     if (isset($_POST) && !empty($_POST) && isset($_GET["id"])) {
         $stmt = $pdo->prepare("UPDATE products SET name = :name, description = :description, category = :category, price = :price, stock = :stock WHERE id = :id");

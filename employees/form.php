@@ -16,8 +16,10 @@
     <?php require "../helpers.php"; ?>
     <?php require "../db.php"; ?>
     <?php
-    if (isset($_POST) && !empty($_POST)) {
-        header("Location: /zavprojekttwe/employees");
+    if (isset($_POST) && !empty($_POST) && !isset($_GET["id"])) {
+        header("Location: /zavprojekttwe/employees/?toast=true&color=green&message=Employee added successfully!");
+    } else if (isset($_POST) && !empty($_POST) && isset($_GET["id"])) {
+        header("Location: /zavprojekttwe/employees/?toast=true&color=green&message=Employee updated successfully!");
     }
     if (isset($_GET["id"])) {
             $stmt = $pdo->prepare("SELECT * FROM employees WHERE id = :id");
@@ -107,7 +109,6 @@
             "job" => $_POST["job"]
             
         ]);
-        header("Location: /zavprojekttwe/employees");
     };
     if (isset($_POST) && !empty($_POST) && isset($_GET["id"])) {
         $stmt = $pdo->prepare("UPDATE employees SET name = :name, surname = :surname, email = :email, dob = :dob, job = :job WHERE id = :id");
