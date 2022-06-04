@@ -86,13 +86,15 @@
                         </div>
                         <div class="fields-container">
                             <label><span>Category</span>
-                            <label for=""><span>Electronics</span><input type="radio" name="category" value="Elektronika" id=""></label>
-                            <label for=""><span>Writing</span><input type="radio" name="category" value="Psací potřeby" id=""></label>
-                            <label for=""><span>Paper</span><input type="radio" name="category" value="Papír" id=""></label>
+                            <div class="radio-container">
+                                <label for=""><input type="radio" name="category" value="Elektronika" id=""><span>Electronics</span></label>
+                                <label for=""><input type="radio" name="category" value="Psací potřeby" id=""><span>Writing</span></label>
+                                <label for=""><input type="radio" name="category" value="Papír" id=""><span>Paper</span></label>
+                            </div>
                         </div>
                         <div class="fields-container">
-                            <label><span>Date of Birth</span> <input type="date" name="dob" value="<?php echo isset($_GET["id"]) ? $row["dob"] : "" ?>" required></label>
-                            <label><span>Job</span> <input type="text" name="job" value="<?php echo isset($_GET["id"]) ? $row["job"] : "" ?>" required></label>
+                            <label><span>Price</span> <input type="number" name="price" min=0 value="<?php echo isset($_GET["id"]) ? $row["price"] : "" ?>" required></label>
+                            <label><span>Stock</span> <input type="number" name="stock" min=0 value="<?php echo isset($_GET["id"]) ? $row["stock"] : "" ?>" required></label>
                         </div>
                         <input class="button" value="<?= isset($_GET["id"]) ? "Edit" : "Add" ?>" type="submit">
                     </div>
