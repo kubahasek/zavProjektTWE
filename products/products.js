@@ -5,8 +5,6 @@ if (searchbox) {
 }
 
 let Products = productsData;
-console.log(Products);
-
 renderTable(Products);
 
 function updateValue() {
