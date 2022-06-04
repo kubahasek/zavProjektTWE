@@ -104,27 +104,27 @@
     </div>
     <?php
     if (isset($_POST) && !empty($_POST) && !isset($_GET["id"])) {
-        $stmt = $pdo->prepare("INSERT INTO employees (name, surname, email, dob, job) VALUES (:name, :surname, :email, :dob, :job)");
+        $stmt = $pdo->prepare("INSERT INTO products (name, description, category, price, stock) VALUES (:name, :description, :category, :price, :stock)");
 
         $stmt->execute([
             "name" => $_POST["name"],
-            "surname" => $_POST["surname"],
-            "email" => $_POST["email"],
-            "dob" => $_POST["dob"],
-            "job" => $_POST["job"]
+            "description" => $_POST["description"],
+            "category" => $_POST["category"],
+            "price" => $_POST["price"],
+            "stock" => $_POST["stock"]
             
         ]);
         header("Location: /zavprojekttwe/employees");
     };
     if (isset($_POST) && !empty($_POST) && isset($_GET["id"])) {
-        $stmt = $pdo->prepare("UPDATE employees SET name = :name, surname = :surname, email = :email, dob = :dob, job = :job WHERE id = :id");
+        $stmt = $pdo->prepare("UPDATE products SET name = :name, description = :description, category = :category, price = :price, stock = :stock WHERE id = :id");
 
         $stmt->execute([
             "name" => $_POST["name"],
-            "surname" => $_POST["surname"],
-            "email" => $_POST["email"],
-            "dob" => $_POST["dob"],
-            "job" => $_POST["job"],
+            "description" => $_POST["description"],
+            "category" => $_POST["category"],
+            "price" => $_POST["price"],
+            "stock" => $_POST["stock"],
             "id" => $_GET["id"]
             
         ]);
