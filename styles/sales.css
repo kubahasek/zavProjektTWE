@@ -1,0 +1,121 @@
+.content-container {
+  display: grid;
+  grid-template-rows: 0.25fr 2fr;
+  width: 95%;
+  height: 95vh;
+  row-gap: 2rem;
+  margin: auto;
+  overflow: hidden;
+}
+
+.top-container {
+  background-color: #242424;
+  border-radius: 46px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.top-container-content {
+  width: 90%;
+  height: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+input[type="text"] {
+  width: 30%;
+  height: 20%;
+  border: none;
+  border-radius: 35px;
+  background-color: #7c7979;
+  color: white;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.search-icon {
+  margin-left: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 1rem;
+  border: 1px white solid;
+  width: 20px;
+  height: 20px;
+  transition: all 100ms ease-in;
+}
+
+.search-icon:hover {
+  transition: all 100ms ease-in;
+  background-color: white;
+  border: 1px black solid;
+  cursor: pointer;
+}
+
+.search-icon:hover > i {
+  transition: all 100ms ease-in;
+  color: black;
+}
+
+.sales-list {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.sales-table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+th {
+  font-size: 2rem;
+}
+
+tr {
+  font-size: 1.5rem;
+}
+
+.employee-card td {
+  border-bottom: 2px solid white;
+}
+
+td {
+  padding: 1.5rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  gap: 2rem;
+}
+
+.edit-icon:hover {
+  color: yellow;
+}
+
+.delete-icon:hover {
+  color: red;
+}
+
+.bottom-container {
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}

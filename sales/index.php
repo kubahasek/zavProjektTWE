@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/sales.css">
     <script src="https://kit.fontawesome.com/e58aedf901.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,9 +63,41 @@
             </div>
         </div>
         <div class="content-container">
-
+            <div class="top-container">
+                    <div class="top-container-content">
+                        <div class="search">
+                            <input type="text" class="search-box" placeholder="Search...">
+                        </div>
+                        <div class="button">
+                            <a href="/zavprojekttwe/products/form.php">
+                                <div class="button-content">
+                                    <i class="fa-solid fa-lg fa-plus"></i>
+                                    <span>Add Product</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-container">
+                    <div class="sales-list">
+                        <table class="sales-table">
+                            <thead>
+                                <tr>
+                                    <th>Seller</th>
+                                    <th>Product</th>
+                                    <th>No.</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody class="sales-table-data">
+                            </tbody>    
+                        </table>                
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    
+    <script type="text/javascript">let salesData = <?php echo json_encode(getSales()) ?></script>
+    <script src="./sales.js"></script> 
 </body>
 </html>
