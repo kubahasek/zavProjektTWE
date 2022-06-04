@@ -15,6 +15,7 @@ function displayToast(color, message) {
     stopOnFocus: true, // Prevents dismissing of toast on hover
     style: {
       background: color,
+      borderRadius: "25px",
     },
   }).showToast();
 }
