@@ -1,65 +1,34 @@
-let productsTableData = document.querySelector(
-    ".products-table-data"
-  );
-  let searchbox = document.querySelector(".search-box");
-  if (searchbox) {
-    searchbox.addEventListener("input", updateValue);
-  }
-  
-  const params = new URLSearchParams(window.location.search)
-  if (params.has("toast")) {
-    if(params.get("toast") === "success") {
-        Toastify({
-            text: "Deleted",
-            duration: 3000,
-            gravity: "top", // `top` or `bottom`
-            position: "center", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
-            style: {
-              background: "green",
-            },
-          }).showToast();
-          window.history.replaceState({}, "", "/zavprojekttwe/products/");
-    } else {
-        Toastify({
-            text: "Deletion failed",
-            duration: 3000,
-            gravity: "top", // `top` or `bottom`
-            position: "center", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
-            style: {
-              background: "red",
-            },
-          }).showToast();
-          window.history.replaceState({}, "", "/zavprojekttwe/products/");
-    }
-  }
+let productsTableData = document.querySelector(".products-table-data");
+let searchbox = document.querySelector(".search-box");
+if (searchbox) {
+  searchbox.addEventListener("input", updateValue);
+}
 
-  let Products = productsData;
-  console.log(Products);
-  
-  renderTable(Products);
-  
-  function updateValue() {
-    let searchValue = searchbox?.value.toLowerCase();
-    if (searchValue !== "" && searchValue !== undefined) {
-      let filteredProducts = Products.filter((product) => {
-        if (product.name.toLowerCase().includes(searchValue)) {
-          return true;
-        } else {
-          return false;
-        }
-      });
-      renderTable(filteredProducts);
-    } else {
-      renderTable(Products);
-    }
+let Products = productsData;
+console.log(Products);
+
+renderTable(Products);
+
+function updateValue() {
+  let searchValue = searchbox?.value.toLowerCase();
+  if (searchValue !== "" && searchValue !== undefined) {
+    let filteredProducts = Products.filter((product) => {
+      if (product.name.toLowerCase().includes(searchValue)) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    renderTable(filteredProducts);
+  } else {
+    renderTable(Products);
   }
-  
-  function renderTable(ProductsArray) {
-    productsTableData.innerHTML = "";
-    ProductsArray.map((Product) => {
-      productsTableData.innerHTML += `<tr class="employee-card">
+}
+
+function renderTable(ProductsArray) {
+  productsTableData.innerHTML = "";
+  ProductsArray.map((Product) => {
+    productsTableData.innerHTML += `<tr class="employee-card">
                                       <td>${Product.name}</td>
                                       <td>${Product.category}</td>
                                       <td>
@@ -73,6 +42,5 @@ let productsTableData = document.querySelector(
                                           </div>
                                       </td>
                                   </tr>`;
-    });
-  }
-  
+  });
+}

@@ -99,6 +99,7 @@
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script type="text/javascript">let productsData = <?php echo json_encode(getProducts()) ?></script>
+    <script src="../toast.js"></script>
     <script src="./products.js"></script>
 </body>
 </html>

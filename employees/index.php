@@ -100,5 +100,6 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script type="text/javascript">let employeesData = <?php echo json_encode(getEmployees()) ?></script>
     <script src="./employees.js"></script>
+    <script src="../toast.js"></script>
 </body>
 </html>
