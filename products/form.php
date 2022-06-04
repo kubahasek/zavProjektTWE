@@ -82,14 +82,14 @@
                             <label><span>Name</span> <input type="text" name="name" value="<?php echo isset($_GET["id"]) ? $row["name"] : "" ?>" autofocus required></label>
                         </div>
                         <div class="fields-container">
-                            <label><span>Description</span><textarea name="description" value="<?php echo isset($_GET["id"]) ? $row["description"] : "" ?>" id="" cols="30" rows="5"></textarea></label>
+                            <label><span>Description</span><textarea name="description" id="" cols="30" rows="5"><?php echo isset($_GET["id"]) ? $row["description"] : "" ?></textarea></label>
                         </div>
                         <div class="fields-container">
                             <label><span>Category</span>
                             <div class="radio-container">
-                                <label for=""><input type="radio" name="category" value="Elektronika" id=""><span>Electronics</span></label>
-                                <label for=""><input type="radio" name="category" value="Psací potřeby" id=""><span>Writing</span></label>
-                                <label for=""><input type="radio" name="category" value="Papír" id=""><span>Paper</span></label>
+                                <label for=""><input type="radio" name="category" value="Elektronika" id="" <?= isset($_GET["id"]) && $row["category"] === "Elektronika" ? "checked" : "" ?>><span>Electronics</span></label>
+                                <label for=""><input type="radio" name="category" value="Psací potřeby" id="" <?= isset($_GET["id"]) && $row["category"] === "Psací potřeby" ? "checked" : "" ?>><span>Writing</span></label>
+                                <label for=""><input type="radio" name="category" value="Papír" id="" <?= isset($_GET["id"]) && $row["category"] === "Papír" ? "checked" : "" ?>><span>Paper</span></label>
                             </div>
                         </div>
                         <div class="fields-container">
