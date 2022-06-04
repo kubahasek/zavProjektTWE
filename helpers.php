@@ -13,7 +13,7 @@ function getEmployees(){
 
 function getSales(){
     require "db.php";
-    $sql = "SELECT * FROM sales";
+    $sql = "SELECT * FROM sales inner join employees on sales.idSeller = employees.id";
     $stmt = $pdo -> prepare($sql);
     $stmt -> execute();
     $data = $stmt -> fetchAll();
