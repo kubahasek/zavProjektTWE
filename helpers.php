@@ -13,7 +13,7 @@ function getEmployees(){
 
 function getSales(){
     require "db.php";
-    $sql = "SELECT * FROM sales inner join employees on sales.idSeller = employees.id";
+    $sql = "SELECT concat(e.name,' ', e.surname) as sellerName, p.name as productName, s.items, s.price  FROM sales s inner join employees e on s.idSeller = e.id inner join products p on s.idProduct = p.id";
     $stmt = $pdo -> prepare($sql);
     $stmt -> execute();
     $data = $stmt -> fetchAll();
