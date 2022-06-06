@@ -2,8 +2,9 @@ const params = new URLSearchParams(window.location.search);
 if (params.has("toast")) {
   let color = params.get("color");
   let message = params.get("message");
+  let redirect = params.get("redirect");
   displayToast(color, message);
-  window.history.replaceState({}, "", "/zavprojekttwe/products/");
+  window.history.replaceState({}, "", redirect);
 }
 
 function displayToast(color, message) {

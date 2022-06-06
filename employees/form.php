@@ -17,9 +17,9 @@
     <?php require "../db.php"; ?>
     <?php
     if (isset($_POST) && !empty($_POST) && !isset($_GET["id"])) {
-        header("Location: /zavprojekttwe/employees/?toast=true&color=green&message=Employee added successfully!");
+        header("Location: /zavprojekttwe/employees/?toast=true&color=green&message=Employee added successfully!&redirect=/zavprojekttwe/employees/");
     } else if (isset($_POST) && !empty($_POST) && isset($_GET["id"])) {
-        header("Location: /zavprojekttwe/employees/?toast=true&color=green&message=Employee updated successfully!");
+        header("Location: /zavprojekttwe/employees/?toast=true&color=green&message=Employee updated successfully!&redirect=/zavprojekttwe/employees/");
     }
     if (isset($_GET["id"])) {
             $stmt = $pdo->prepare("SELECT * FROM employees WHERE id = :id");

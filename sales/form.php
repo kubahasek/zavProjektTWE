@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/base.css">
-    <link rel="stylesheet" href="../styles/productform.css">
+    <link rel="stylesheet" href="../styles/saleform.css">
     <script src="https://kit.fontawesome.com/e58aedf901.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,12 +17,12 @@
     <?php require "../db.php"; ?>
     <?php
     if (isset($_POST) && !empty($_POST) && !isset($_GET["id"])) {
-        header("Location: /zavprojekttwe/products/?toast=true&color=green&message=Product added successfully!&redirect=/zavprojekttwe/products/");
+        header("Location: /zavprojekttwe/sales/?toast=true&color=green&message=Sale added successfully!&redirect=/zavprojekttwe/sales/");
     } else if (isset($_POST) && !empty($_POST) && isset($_GET["id"])) {
-        header("Location: /zavprojekttwe/products/?toast=true&color=green&message=Product updated successfully!&redirect=/zavprojekttwe/products/");
+        header("Location: /zavprojekttwe/sales/?toast=true&color=green&message=Sale updated successfully!&redirect=/zavprojekttwe/sales/");
     }
     if (isset($_GET["id"])) {
-            $stmt = $pdo->prepare("SELECT * FROM products WHERE id = :id");
+            $stmt = $pdo->prepare("SELECT * FROM sales WHERE id = :id");
             $stmt->execute(["id" => $_GET["id"]]);
             $row = $stmt->fetch();
         }
@@ -47,7 +47,7 @@
                     </a>
                     <a href="/zavprojekttwe/employees">
                         <div class="sidebar-link">
-                            <div class="active-link"></div>
+                            <div class=""></div>
                             <div class="sidebar-link-content">
                                 <i class="fa-solid fa-users"></i>
                                 <span>Employees</span>
@@ -56,7 +56,7 @@
                     </a>
                     <a href="/zavprojekttwe/sales">
                         <div class="sidebar-link">
-                            <div></div>
+                            <div class="active-link"></div>
                             <div class="sidebar-link-content">
                                 <i class="fa-solid fa-shopping-cart"></i>
                                 <span>Sales</span>
@@ -81,22 +81,29 @@
                 <form action="" method="POST">
                     <div class="form-fields">
                         <div class="fields-container">
-                            <label><span>Name</span> <input type="text" name="name" value="<?php echo isset($_GET["id"]) ? $row["name"] : "" ?>" autofocus required></label>
+                            <label><span>Seller</span> 
+                                        <select name="seller">
+                                            <?php foreach (getSellers() as $key => $seller): ?>
+                                                <option value="<?= $seller["id"] ?>" <?= isset($_GET["id"]) ? ($row["idSeller"] === $seller["id"] ? "selected" : "") : ""?>><?= $seller["sellerName"] ?></option>
+                                            <?php endforeach ?>
+                                        </select>
+                            </label>
                         </div>
                         <div class="fields-container">
-                            <label><span>Description</span><textarea name="description" id="" cols="30" rows="5"><?php echo isset($_GET["id"]) ? $row["description"] : "" ?></textarea></label>
+                            <label><span>Product</span> 
+                                        <select name="product">
+                                            <?php foreach (getProductsForSelect() as $key => $product): ?>
+                                                <option value="<?= $product["id"] ?>" <?= isset($_GET["id"]) ? ($row["idProduct"] === $product["id"] ? "selected" : "") : ""?>><?= $product["name"] ?> </option>
+                                            <?php endforeach ?>
+                                        </select>
+                            </label>
                         </div>
                         <div class="fields-container">
-                            <label><span>Category</span>
-                            <div class="radio-container">
-                                <label for=""><input type="radio" name="category" value="Elektronika" id="" <?= isset($_GET["id"]) && $row["category"] === "Elektronika" ? "checked" : "" ?>><span>Electronics</span></label>
-                                <label for=""><input type="radio" name="category" value="Psací potřeby" id="" <?= isset($_GET["id"]) && $row["category"] === "Psací potřeby" ? "checked" : "" ?>><span>Writing</span></label>
-                                <label for=""><input type="radio" name="category" value="Papír" id="" <?= isset($_GET["id"]) && $row["category"] === "Papír" ? "checked" : "" ?>><span>Paper</span></label>
-                            </div>
+                            <label><span>No.</span> <input type="number" name="items" min=0 value="<?php echo isset($_GET["id"]) ? $row["items"] : "" ?>" required></label>
+                            <label><span>Date</span> <input type="date" name="date" value="<?php echo isset($_GET["id"]) ? $row["saleDate"] : date("Y-m-d") ?>" required></label>
                         </div>
-                        <div class="fields-container">
-                            <label><span>Price</span> <input type="number" name="price" min=0 value="<?php echo isset($_GET["id"]) ? $row["price"] : "" ?>" required></label>
-                            <label><span>Stock</span> <input type="number" name="stock" min=0 value="<?php echo isset($_GET["id"]) ? $row["stock"] : "" ?>" required></label>
+                        <div class="fields-container checkbox-container">
+                            <label><span>10% Sale</span> <input type="checkbox" name="sale" id=""></label>
                         </div>
                         <input class="button" value="<?= isset($_GET["id"]) ? "Edit" : "Add" ?>" type="submit">
                     </div>
@@ -106,28 +113,34 @@
     </div>
     <?php
     if (isset($_POST) && !empty($_POST) && !isset($_GET["id"])) {
-        $stmt = $pdo->prepare("INSERT INTO products (name, description, category, price, stock) VALUES (:name, :description, :category, :price, :stock)");
-
+        $stmt = $pdo->prepare("INSERT INTO sales (idSeller, idProduct, items, saleDate, price) VALUES (:idSeller, :idProduct, :items, :date, :price)");
+        if ($_POST["sale"]) {
+            $price = getProductById($_POST["product"])["price"] * 0.9 * $_POST["items"];
+        } else {
+            $price = getProductById($_POST["product"])["price"] * $_POST["items"];
+        }
         $stmt->execute([
-            "name" => $_POST["name"],
-            "description" => $_POST["description"],
-            "category" => $_POST["category"],
-            "price" => $_POST["price"],
-            "stock" => $_POST["stock"]
-            
+            "idSeller" => $_POST["seller"],
+            "idProduct" => $_POST["product"],
+            "items" => $_POST["items"],
+            "date" => $_POST["date"],
+            "price" => $price 
         ]);
     };
     if (isset($_POST) && !empty($_POST) && isset($_GET["id"])) {
-        $stmt = $pdo->prepare("UPDATE products SET name = :name, description = :description, category = :category, price = :price, stock = :stock WHERE id = :id");
-
+        $stmt = $pdo->prepare("UPDATE sales SET idSeller = :idSeller, idProduct = :idProduct, items = :items, saleDate = :date, price = :price WHERE id = :id");
+        if ($_POST["sale"]) {
+            $price = getProductById($_POST["product"])["price"] * 0.9 * $_POST["items"];
+        } else {
+            $price = getProductById($_POST["product"])["price"] * $_POST["items"];
+        }
         $stmt->execute([
-            "name" => $_POST["name"],
-            "description" => $_POST["description"],
-            "category" => $_POST["category"],
-            "price" => $_POST["price"],
-            "stock" => $_POST["stock"],
+            "idSeller" => $_POST["seller"],
+            "idProduct" => $_POST["product"],
+            "items" => $_POST["items"],
+            "date" => $_POST["date"],
+            "price" => $price,
             "id" => $_GET["id"]
-            
         ]);
     }
     ?>

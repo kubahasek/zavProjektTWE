@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Dunder Mifflin</title>
 </head>
 <body>
@@ -69,7 +70,7 @@
                             <input type="text" class="search-box" placeholder="Search...">
                         </div>
                         <div class="button">
-                            <a href="/zavprojekttwe/products/form.php">
+                            <a href="/zavprojekttwe/sales/form.php">
                                 <div class="button-content">
                                     <i class="fa-solid fa-lg fa-plus"></i>
                                     <span>Add Product</span>
@@ -87,6 +88,7 @@
                                     <th>Product</th>
                                     <th>No.</th>
                                     <th>Price</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="sales-table-data">
@@ -98,6 +100,8 @@
         </div>
     </div>
     <script type="text/javascript">let salesData = <?php echo json_encode(getSales()) ?></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="../toast.js"></script>
     <script src="./sales.js"></script> 
 </body>
 </html>

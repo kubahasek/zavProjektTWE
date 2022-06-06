@@ -38,11 +38,8 @@ function renderTable(salesData) {
                                       <td>${sale.price}</td>
                                       <td>
                                           <div class="actions">
-                                              <a href="/zavprojekttwe/products/form.php?id=${sale.id}">
+                                              <a href="/zavprojekttwe/sales/form.php?id=${sale.id}">
                                                   <div class="edit-icon"><i class="fa-solid fa-lg fa-edit"></i></div>
-                                              </a>
-                                              <a href="/zavprojekttwe/products/delete.php?id=${sale.id}">
-                                                  <div class="delete-icon"><i class="fa-solid fa-lg fa-trash-alt"></i></div>
                                               </a>
                                           </div>
                                       </td>
