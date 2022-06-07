@@ -74,3 +74,33 @@ function getProductById($id){
     return $data;
         
 }
+
+function getSalesInLast14Days() {
+    require "db.php";
+    $sql = "select count(s.id) from employees e inner join sales s on e.id = s.idSeller where CURRENT_DATE() - s.saleDate <= 14";
+    $stmt = $pdo -> prepare($sql);
+    $stmt -> execute();
+    $data = $stmt -> fetch();
+            
+    return $data;
+}
+
+function getAllTimeRevenue() {
+    require "db.php";
+    $sql = "select sum(price) from sales";
+    $stmt = $pdo -> prepare($sql);
+    $stmt -> execute();
+    $data = $stmt -> fetch();
+            
+    return $data;
+}
+
+function getBestSeller() {
+    require "db.php";
+    $sql = "select e.id, concat(e.name, " ", e.surname) as name, count(e.id) as noOfSales from employees e inner join sales s on e.id = s.idSeller group by e.id order by count(e.id) desc LIMIT 1";
+    $stmt = $pdo -> prepare($sql);
+    $stmt -> execute();
+    $data = $stmt -> fetch();
+            
+    return $data;
+}
