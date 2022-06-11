@@ -73,7 +73,7 @@
                             <a href="/zavprojekttwe/sales/form.php">
                                 <div class="button-content">
                                     <i class="fa-solid fa-lg fa-plus"></i>
-                                    <span>Add Product</span>
+                                    <span>Add Sale</span>
                                 </div>
                             </a>
                         </div>
