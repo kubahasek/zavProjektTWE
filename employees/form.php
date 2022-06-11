@@ -28,6 +28,45 @@
         }
     ?>
     <div class="grid-container">
+        <div class="mobile-nav">
+            <div class="mobile-nav-links">
+                    <a href="/zavprojekttwe">
+                        <div class="mobile-nav-link">  
+                            <div class="mobile-nav-link-content">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <div class="mobile-non-active-link"></div>
+                        </div>
+                    </a>
+                    <a href="/zavprojekttwe/employees">
+                        <div class="mobile-nav-link">
+                            
+                            <div class="mobile-nav-link-content">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div class="mobile-active-link"></div>
+                        </div>
+                    </a>
+                    <a href="/zavprojekttwe/sales">
+                        <div class="mobile-nav-link">
+                            
+                            <div class="mobile-nav-link-content">
+                                <i class="fa-solid fa-shopping-cart"></i>
+                            </div>
+                            <div class="mobile-non-active-link"></div>
+                        </div>
+                    </a>
+                    <a href="/zavprojekttwe/products">
+                        <div class="mobile-nav-link">
+                            
+                            <div class="mobile-nav-link-content">
+                                <i class="fa-solid fa-box"></i>
+                            </div>
+                            <div class="mobile-non-active-link"></div>
+                        </div>
+                    </a>
+            </div>
+        </div> 
         <div class="sidebar">
             <div class="content">
                 <div class="user-info">
