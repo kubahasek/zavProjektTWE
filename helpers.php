@@ -77,7 +77,7 @@ function getProductById($id){
 
 function getSalesInLast14Days() {
     require "db.php";
-    $sql = "select count(s.id) from employees e inner join sales s on e.id = s.idSeller where CURRENT_DATE() - s.saleDate <= 14";
+    $sql = "select count(s.id) as noOfSales from employees e inner join sales s on e.id = s.idSeller where CURRENT_DATE() - s.saleDate <= 14";
     $stmt = $pdo -> prepare($sql);
     $stmt -> execute();
     $data = $stmt -> fetch();
@@ -87,7 +87,7 @@ function getSalesInLast14Days() {
 
 function getAllTimeRevenue() {
     require "db.php";
-    $sql = "select sum(price) from sales";
+    $sql = "select sum(price) as revenue from sales";
     $stmt = $pdo -> prepare($sql);
     $stmt -> execute();
     $data = $stmt -> fetch();
@@ -101,6 +101,16 @@ function getBestSeller() {
     $stmt = $pdo -> prepare($sql);
     $stmt -> execute();
     $data = $stmt -> fetch();
+            
+    return $data;
+}
+
+function getNoOfSales7Days() {
+    require "db.php";
+    $sql = "select weekday(saleDate) as weekday, COUNT(id) as noOfSales from sales where weekday(saleDate) < 5 and CURRENT_DATE - saleDate <= 7 group by weekday(saleDate) order by weekday(saleDate) asc";
+    $stmt = $pdo -> prepare($sql);
+    $stmt -> execute();
+    $data = $stmt -> fetchAll();
             
     return $data;
 }
