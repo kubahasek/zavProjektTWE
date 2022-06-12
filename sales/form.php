@@ -116,7 +116,7 @@
         </div>
         <div class="content-container">
             <div class="form-container">
-                <?= isset($_GET["id"]) ? "<h1>Edit product</h1>" :"<h1>Add a new product</h1>" ?>
+                <?= isset($_GET["id"]) ? "<h1>Edit sale</h1>" :"<h1>Add a new sale</h1>" ?>
                 <form action="" method="POST">
                     <div class="form-fields">
                         <div class="fields-container">

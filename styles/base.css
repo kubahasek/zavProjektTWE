@@ -184,7 +184,6 @@ a {
 
   .mobile-nav {
     width: 100vw;
-    margin-bottom: 2rem;
     background-color: #242424;
   }
 
@@ -215,5 +214,9 @@ a {
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     margin: 0 auto;
+  }
+
+  .grid-container {
+    grid-template-rows: 0.1fr 1fr;
   }
 }
