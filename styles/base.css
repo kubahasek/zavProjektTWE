@@ -168,7 +168,7 @@ a {
   display: none;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 815px) {
   .mobile-nav {
     display: block;
   }

@@ -119,3 +119,22 @@ td {
   overflow-y: scroll;
   scrollbar-width: none;
 }
+
+@media screen and (max-width: 815px) {
+  .top-container {
+    margin-top: 1rem;
+  }
+
+  .top-container-content {
+    flex-direction: column;
+  }
+
+  .search input {
+    width: 100%;
+  }
+
+  .button {
+    width: 80%;
+    margin-bottom: 2rem;
+  }
+}
