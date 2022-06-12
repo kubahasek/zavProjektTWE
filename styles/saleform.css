@@ -129,3 +129,33 @@ textarea:focus {
   display: inline-flex;
   align-items: center;
 }
+
+@media screen and (max-width: 815px) {
+  .content-container {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .form-fields {
+    margin: 1rem auto;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="date"] {
+    padding: 1rem 0;
+  }
+
+  label > span {
+    margin-left: 0;
+  }
+
+  input.button {
+    width: 80%;
+    margin-bottom: 1rem;
+  }
+
+  .content-container {
+    height: 100%;
+  }
+}
