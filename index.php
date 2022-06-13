@@ -137,7 +137,9 @@
                 <div class="chart">
                     <h1>Sales</h1>
                     <p>Last 7 days</p>
-                    <canvas id="myChart"></canvas>
+                    <div class="canvas">
+                        <canvas id="myChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
