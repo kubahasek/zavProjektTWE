@@ -113,6 +113,47 @@ textarea:focus {
   box-shadow: 0px 0px 15px #87009d;
 }
 
+@media screen and (max-width: 1080px) {
+  .content-container {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .form-fields {
+    margin: 1rem auto;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="date"],
+  input[type="number"],
+  select,
+  textarea {
+    box-sizing: content-box;
+    width: 700px;
+    margin: 0 auto;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="date"] {
+    padding: 1rem 0;
+  }
+
+  label > span {
+    margin-left: 0;
+  }
+
+  input.button {
+    width: 300px;
+    margin-bottom: 1rem;
+  }
+
+  .content-container {
+    height: 100%;
+  }
+}
+
 @media screen and (max-width: 815px) {
   .content-container {
     margin-top: 2rem;

@@ -120,6 +120,16 @@ td {
   scrollbar-width: none;
 }
 
+@media screen and (max-width: 1080px) {
+  .content-container {
+    margin-top: 2rem;
+  }
+
+  .button-content {
+    font-size: 1rem;
+  }
+}
+
 @media screen and (max-width: 815px) {
   .top-container {
     margin-top: 1rem;
