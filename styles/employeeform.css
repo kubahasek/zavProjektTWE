@@ -93,6 +93,16 @@ input:focus {
 
   input[type="text"],
   input[type="email"],
+  input[type="date"],
+  input[type="number"],
+  select {
+    box-sizing: content-box;
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  input[type="text"],
+  input[type="email"],
   input[type="date"] {
     padding: 1rem 0;
   }
@@ -102,7 +112,7 @@ input:focus {
   }
 
   input.button {
-    width: 80%;
+    width: 300px;
     margin-bottom: 1rem;
   }
 

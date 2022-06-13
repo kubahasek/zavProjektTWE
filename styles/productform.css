@@ -125,6 +125,17 @@ textarea:focus {
 
   input[type="text"],
   input[type="email"],
+  input[type="date"],
+  input[type="number"],
+  select,
+  textarea {
+    box-sizing: content-box;
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  input[type="text"],
+  input[type="email"],
   input[type="date"] {
     padding: 1rem 0;
   }
@@ -134,7 +145,7 @@ textarea:focus {
   }
 
   input.button {
-    width: 85%;
+    width: 300px;
     margin-bottom: 1rem;
   }
 
@@ -143,7 +154,6 @@ textarea:focus {
   }
 
   textarea {
-    width: 100%;
     padding: 1rem 0.5rem;
     border: none;
     border-radius: 35px;
@@ -160,7 +170,6 @@ textarea:focus {
   input[type="email"],
   input[type="date"],
   input[type="number"] {
-    width: 100%;
     height: 25px;
     padding: 1rem 0.5rem;
     border: none;
