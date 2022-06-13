@@ -13,7 +13,10 @@ function updateValue() {
   let searchValue = searchbox?.value.toLowerCase();
   if (searchValue !== "" && searchValue !== undefined) {
     let filteredSales = sales.filter((sale) => {
-      if (sale.sellerName.toLowerCase().includes(searchValue)) {
+      if (
+        sale.sellerName.toLowerCase().includes(searchValue) ||
+        sale.productName.toLowerCase().includes(searchValue)
+      ) {
         return true;
       } else {
         return false;
